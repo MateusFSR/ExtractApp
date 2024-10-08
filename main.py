@@ -56,7 +56,7 @@ async def get_last_message():
             print(f"Última mensagem: {last_message}")
         
         # Atraso após a leitura
-        await asyncio.sleep(7)  # Aguarde 5 segundos antes de tentar novamente
+        await asyncio.sleep(7)  # Aguarde 7 segundos antes de tentar novamente
 
     except Exception as e:
         last_message = f"Erro ao capturar mensagens: {str(e)}"
