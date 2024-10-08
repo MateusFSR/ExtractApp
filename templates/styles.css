@@ -1,0 +1,37 @@
+body {
+    background-color: #f4f4f4; /* Fundo claro */
+    font-family: Arial, sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+h1 {
+    color: #c72c29; /* Vermelho roleta */
+}
+
+h2 {
+    color: #333; /* Preto */
+}
+
+#lastMessage, #entrada {
+    border: 2px solid #000; /* Borda preta */
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%; /* Largura responsiva */
+    max-width: 600px; /* Largura máxima */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    background-color: #fff; /* Fundo branco */
+    transition: background-color 0.3s;
+}
+
+/* Cores ao passar o mouse */
+#lastMessage:hover {
+    background-color: #e3e3e3; /* Fundo cinza claro */
+}
+
+#entrada:hover {
+    background-color: #e3e3e3; /* Fundo cinza claro */
+}
+
+/* Estilização de b

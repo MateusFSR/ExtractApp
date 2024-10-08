@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Última Mensagem do Grupo</title>
+    <style>
+        body {
+            background-color: #f4f4f4; /* Fundo claro */
+            font-family: Arial, sans-serif;
+            color: #333;
+            text-align: center;
+        }
+
+        h1 {
+            color: #c72c29; /* Vermelho roleta */
+        }
+
+        h2 {
+            color: #333; /* Preto */
+        }
+
+        #lastMessage, #entrada {
+            border: 2px solid #000; /* Borda preta */
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%; /* Largura responsiva */
+            max-width: 600px; /* Largura máxima */
+            border-radius: 10px; /* Bordas arredondadas */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+            background-color: #fff; /* Fundo branco */
+            transition: background-color 0.3s;
+        }
+
+        /* Cores ao passar o mouse */
+        #lastMessage:hover {
+            background-color: #e3e3e3; /* Fundo cinza claro */
+        }
+
+        #entrada:hover {
+            background-color: #e3e3e3; /* Fundo cinza claro */
+        }
+
+        /* Estilização de bordas do box de entrada */
+        #entrada {
+            background-color: #e6ffe6; /* Fundo verde claro */
+            border: 2px solid #4caf50; /* Borda verde */
+        }
+
+        /* Estilização de bordas do box de mensagem */
+        #lastMessage {
+            background-color: #ffcccc; /* Fundo vermelho claro */
+            border: 2px solid #c72c29; /* Borda vermelha */
+        }
+    </style>
+    <script>
+        async function fetchMessage() {
+            const response = await fetch('/last_message');
+            const data = await response.json();
+            document.getElementById('lastMessage').innerText = data.message;
+            document.getElementById('entrada').innerText = data.entrada;
+        }
+
+        setInterval(fetchMessage, 5000);  // Atualiza a cada 5 segundos
+    </script>
+</head>
+<body>
+    <h1>Última Mensagem do Grupo</h1>
+    <div id="lastMessage">
+        Carregando...
+    </div>
+
+    <h2>Entrada Extraída:</h2>
+    <div id="entrada">
+        Carregando...
+    </div>
+</body>
+</html>
