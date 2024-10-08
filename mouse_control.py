@@ -48,13 +48,29 @@ def executar_clique(combinacao):
     elif combinacao == "1 e 3" and posicao1 and posicao3:
         clicar_em(posicao2)
     elif combinacao == "2 e 3" and posicao2 and posicao3:
-        clicar_em(posicao3)
+        scroll_e_clicar_em(posicao3)
 
+# Função para clicar em uma posição específica
 def clicar_em(posicao):
     x, y = posicao
     mouse_controller.position = (x, y)
     mouse_controller.click(Button.left, 1)
     print(f"Clicou na posição: {posicao}")
+
+# Função para rolar o mouse para baixo e clicar
+def scroll_e_clicar_em(posicao):
+    x, y = posicao
+    mouse_controller.position = (x, y)
+    
+    # Realiza o scroll para baixo
+    mouse_controller.scroll(0, -2)  # Número negativo indica scroll para baixo
+
+    # Aguarda um breve momento após o scroll
+    time.sleep(0.5)  # 500ms de pausa para garantir que o scroll foi completado
+
+    # Agora realiza o clique
+    mouse_controller.click(Button.left, 1)
+    print(f"Scroll realizado e clique na posição: {posicao}")
 
 # Função para monitorar as mensagens do Flask
 def monitorar_mensagens():
